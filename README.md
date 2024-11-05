@@ -1,33 +1,65 @@
-Functions
-Aim
-To demonstrate the use of pointers in C++ by swapping the values of two variables using a function.
 
-Theory
-Pointers are variables that store the memory address of another variable. By using pointers, we can directly manipulate the values stored in memory. This is particularly useful for functions that need to modify the actual values of arguments passed to them.
+# Functions
 
-Algorithm
-Define a function swap that takes two integer pointers as parameters.
-Inside the function, declare a temporary integer variable temp.
-Assign the value pointed to by the first pointer to temp.
-Assign the value pointed to by the second pointer to the location pointed to by the first pointer.
-Assign the value stored in temp to the location pointed to by the second pointer.
-In the main function, declare two integer variables a and b and initialize them.
-Call the swap function, passing the addresses of a and b.
-Print the swapped values of a and b.
-#include <iostream>
-using namespace std;
+## Aim 
+To study pointer operations
 
-void swap(int *x, int *y) {
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
-}
+## Software Used 
+Visual studio code
 
-int main() {
-    int a = 5, b = 2;
-    swap(&a, &b);
-    cout << "value of a: " << a << endl;
-    cout << "value of b: " << b << endl;
-    return 0;
-}
+## Theory
+<br>
+In C++, functions can receive parameters in different ways, influencing how the function manipulates the provided values. Two common methods are Call by Reference and Call by Value:
+<br>
+
+### Call by Reference  
+
+**Definition:** Call by Reference means passing the address (reference) of the actual parameters to the function. This allows the function to modify the original values.  
+
+**Working:** The function receives pointers to the variables, and operations performed inside the function affect the original variables directly.
+
+### Call by Value 
+
+**Definition:** Call by Value means passing a copy of the actual parameters to the function. Changes made to the parameters inside the function do not affect the original variable   
+
+## Algorithms
+### Call by value
+
+1. **Start**
+2. **Define Function `swap(int x, int y)`**
+   - **Input:** Two integers `x` and `y`
+   - **Output:** Swapped values of `x` and `y`
+   - **Inside Swap function:**
+     1. Create a temporary variable `temp`
+     2. Assign the value of `x` to `temp`
+     3. Assign the value of `y` to `x`
+     4. Assign the value of `temp` to `y`
+3. **Inside `main` Function**
+   - Define two integers `a` and `b` with 5 and 2
+   - Call `swap(a, b)`
+   - Print the value of `a`
+   - Print the value of `b`
+4. **End**
+
+### Call by reference
+
+1. **Start**
+2. **Define Function `swap(int *x, int *y)`**
+   - **Input:** Pointers to two integers `x` and `y`
+   - **Output:** Swapped values of the integers pointed to by `x` and `y`
+   - **Steps:**
+     1. Make a temporary variable `temp`
+     2. Assign the value pointed to by `x` to `temp` (`temp = *x`)
+     3. Assign the value pointed to by `y` to the location pointed to by `x` (`*x = *y`)
+     4. Assign the value of `temp` to the location pointed to by `y` (`*y = temp`)
+3. **In `main` Function**
+   1. Define integers `a` and `b` with 5 and 2.
+   2. Call `swap(&a, &b)` function
+   3. Print the value of `a`
+   4. Print the value of `b`
+4. **End**
+
+
+
+## Conclusion
+We learnt about the operations on pointers
